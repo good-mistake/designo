@@ -1,0 +1,32 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+
+.button {
+  width: 152px;
+  height: 56px;
+  border-radius: 8px;
+  overflow: $overflow;
+  border: unset;
+  letter-spacing: $spacing-es;
+  text-transform: uppercase;
+  cursor: $cursor;
+  font-size: $font-size-s;
+  font-weight: $font-weight-medium;
+  &--dark {
+    background-color: $primary-color-light;
+    color: $secondary-color-dark;
+  }
+
+  &--light {
+    background-color: $primary-color;
+    color: $primary-color-light;
+  }
+  &:hover {
+    background-color: $secondary-color;
+    color: $primary-color-light;
+    transition: all 0.2s ease;
+  }
+  @include respond-to-max(md) {
+    padding: $spacing-m;
+  }
+}

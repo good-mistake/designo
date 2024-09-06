@@ -1,0 +1,38 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.graphicDesign {
+  @include background(
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../../../public/assets/home/desktop/image-graphic-design.jpg")
+  );
+  width: 100%;
+  @include border-radius($size-14);
+  height: 308px;
+  @include design-block;
+  @include respond-to-max(md) {
+    width: 100%;
+    align-self: center;
+    margin: $size-1 auto;
+    h2 {
+      font-weight: 450;
+    }
+    height: 200px;
+    @include background(
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../../../public/assets/home/tablet/image-graphic-design.jpg")
+    );
+  }
+  @include respond-to-max(sm) {
+    @include background(
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../../../public/assets/home/mobile/image-graphic-design.jpg")
+    );
+    h2 {
+      font-weight: 450;
+      font-size: 28px;
+    }
+    p {
+      font-size: $size-15;
+    }
+  }
+}

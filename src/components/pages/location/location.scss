@@ -1,0 +1,102 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+
+.containerLocation {
+  @include flex-column(center, center);
+  overflow: hidden;
+
+  main {
+    margin-top: $margin-top;
+    width: 77.15%;
+    @include respond-to-max(xl) {
+      width: 90%;
+    }
+    @include respond-to-max(sm) {
+      margin-top: 0;
+      width: 100%;
+    }
+    > div {
+      margin-bottom: $margin-top;
+      @include flex-center(space-between, unset);
+
+      &:nth-child(2) {
+        flex-direction: row-reverse;
+        @include respond-to-max(md) {
+          @include flex-column(center, center);
+          flex-direction: column-reverse;
+        }
+      }
+      > div {
+        @include flex-column(center, flex-start);
+        background-image: url("../../../../public/assets/shared/desktop/bg-pattern-two-circles.svg");
+        @include border-radius($size-14);
+        width: 66%;
+        background-color: #fdf3f0;
+        padding-left: 6rem;
+        background-size: contain;
+        > div {
+          @include flex-center(space-between, center);
+
+          width: 420px;
+        }
+        @include respond-to-max(xl) {
+          padding-left: $size-1h;
+        }
+        @include respond-to-max(md) {
+          width: 100%;
+          min-height: 326px;
+          padding-left: 3.5rem;
+        }
+        @include respond-to-max(sm) {
+          padding-left: 0rem;
+          min-height: 394px;
+          background-size: cover;
+          background-position: -395px 320px;
+          @include flex-column(center, center);
+          border-radius: 0;
+          text-align: center;
+          > div {
+            @include flex-column(center, center);
+          }
+        }
+      }
+
+      h2 {
+        color: $primary-color;
+        font-size: $font-size-h2;
+        line-height: $line-height-lg;
+        font-weight: $font-weight-medium;
+        margin-bottom: $size-1h;
+      }
+      p {
+        color: $secondary-color-dark;
+        font-size: $font-size-body;
+        line-height: $line-height-md;
+        font-weight: bold;
+        span {
+          font-weight: $font-weight-normal;
+          display: block;
+        }
+        @include respond-to-max(sm) {
+          margin: $size-1 0;
+        }
+      }
+      @include respond-to-max(md) {
+        @include flex-column(center, center);
+        flex-direction: column-reverse;
+      }
+    }
+    img {
+      @include border-radius($size-14);
+      width: 31%;
+      @include respond-to-max(md) {
+        width: 100%;
+        margin-bottom: $size-1h;
+      }
+      @include respond-to-max(sm) {
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+    }
+  }
+}

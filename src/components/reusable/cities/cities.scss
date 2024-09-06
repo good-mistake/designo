@@ -1,0 +1,72 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.cities {
+  margin-top: 10rem;
+  @include flex-row(space-between, center);
+  text-align: center;
+  position: $position-rel;
+  @include respond-to-max(md) {
+    @include flex-column(center, center);
+    margin-top: 0rem;
+  }
+  @include respond-to-max(sm) {
+    margin-top: 5rem;
+  }
+  > div {
+    @include respond-to-max(md) {
+      @include flex-column(center, center);
+      margin-bottom: 6rem;
+    }
+    &:nth-child(1) {
+      img {
+        background-image: linear-gradient(
+            to top,
+            rgb(255, 255, 255),
+            rgba(93, 2, 2, 0.062)
+          ),
+          url("../../../../public/assets/shared/desktop/bg-pattern-small-circle.svg");
+      }
+    }
+    &:nth-child(2) {
+      img {
+        background-image: linear-gradient(
+            to left,
+            rgb(255, 255, 255),
+            rgba(93, 2, 2, 0.062)
+          ),
+          url("../../../../public/assets/shared/desktop/bg-pattern-small-circle.svg");
+      }
+    }
+    &:nth-child(3) {
+      img {
+        background-image: linear-gradient(
+            to bottom,
+            rgb(255, 255, 255),
+            rgba(93, 2, 2, 0.062)
+          ),
+          url("../../../../public/assets/shared/desktop/bg-pattern-small-circle.svg");
+      }
+    }
+    img {
+      border-radius: 50%;
+      overflow: visible;
+    }
+    h3 {
+      font-weight: $font-weight-medium;
+      font-size: $font-size-h3;
+      margin: $size-2 0;
+      letter-spacing: $spacing-m;
+    }
+    button {
+      font-weight: $font-weight-normal;
+      font-size: $size-15;
+    }
+  }
+  @media (min-width: 769px) {
+    @include before-background-pattern(
+      url("../../../../public/assets/shared/desktop/bg-pattern-leaf.svg"),
+      $top: 160px,
+      $left: 700px
+    );
+  }
+}

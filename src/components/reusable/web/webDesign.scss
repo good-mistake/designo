@@ -1,0 +1,40 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.largeDesign {
+  @include background(
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../../../public/assets/home/desktop/image-web-design-large.jpg")
+  );
+  opacity: 11;
+
+  @include border-radius($size-15);
+  height: 640px;
+  width: 100%;
+  @include design-block;
+  @include respond-to-max(md) {
+    width: 100%;
+    align-self: center;
+    margin: $size-1 auto;
+    h2 {
+      font-weight: 450;
+    }
+    height: 200px;
+    @include background(
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../../../public/assets/home/tablet/image-web-design.jpg")
+    );
+  }
+  @include respond-to-max(sm) {
+    @include background(
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../../../public/assets/home/mobile/image-web-design.jpg")
+    );
+    h2 {
+      font-weight: 450;
+      font-size: 28px;
+    }
+    p {
+      font-size: $size-15;
+    }
+  }
+}

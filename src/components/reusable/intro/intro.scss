@@ -1,0 +1,26 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.intro {
+  background-image: url("../../../../public/assets/web-design/desktop/bg-pattern-intro-web.svg");
+  @include top-page-background;
+  @include respond-to-max(sm) {
+    width: 100%;
+    border-radius: unset;
+    min-height: 320px;
+    background-image: url("../../../../public/assets/shared/mobile/bg-pattern-design-pages-intro-mobile.svg");
+    background-position: -100vw -20px;
+    background-size: 200% 140vh;
+    background-repeat: no-repeat;
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      width: 92%;
+      font-size: $size-15;
+    }
+  }
+  @media (max-width: 378px) {
+    background-position: -130vw 20px;
+    background-size: 230% 120vh;
+  }
+}

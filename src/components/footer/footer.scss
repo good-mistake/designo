@@ -1,0 +1,271 @@
+@import "../../styles/abstract/mixins.scss";
+@import "../../styles/abstract/variables.scss";
+footer {
+  margin-top: 15rem;
+  position: $position-rel;
+  background-color: $primary-color-dark;
+  height: 393px;
+  width: 100%;
+  @include respond-to-max(md) {
+    height: 423px;
+  }
+  @include respond-to-max(sm) {
+    height: 815px;
+  }
+  @include flex-center(space-around, center);
+  .top {
+    position: $position-absolute;
+    background-color: $primary-color;
+    height: 292px;
+    width: 77.15%;
+    @include respond-to-max(xl) {
+      width: 90%;
+    }
+    @include respond-to-max(md) {
+      @include flex-column(center, center);
+      text-align: center;
+      font-weight: 450;
+      height: 350px;
+    }
+    @include respond-to-max(sm) {
+      height: 379px;
+    }
+    top: -320px;
+    overflow: hidden;
+    border-radius: $size-15;
+    z-index: 1;
+    margin-top: 80px;
+    @include flex-center(space-around, center);
+    > div {
+      width: 459px;
+      @include respond-to-max(md) {
+        width: 573px;
+        @include flex-column(center, center);
+      }
+      @include respond-to-max(sm) {
+        width: 100%;
+      }
+      h2 {
+        font-size: $font-size-h2;
+        font-weight: 450;
+        letter-spacing: 0;
+        line-height: $font-size-h2;
+        margin-bottom: $size-1h;
+        @include respond-to-max(md) {
+          width: 335px;
+        }
+        @include respond-to-max(sm) {
+          width: 80%;
+          font-size: 32px;
+        }
+      }
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: $line-height-md;
+        @include respond-to-max(md) {
+          margin-bottom: $size-1;
+          width: 453px;
+        }
+        @include respond-to-max(sm) {
+          width: 84%;
+          opacity: 0.9;
+          font-weight: 350;
+
+          margin-bottom: $size-2;
+          font-size: $size-15;
+        }
+      }
+    }
+
+    h2,
+    p {
+      color: $primary-color-light;
+    }
+    &::after {
+      position: $position-absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      background-image: linear-gradient(
+          to right,
+          $primary-color 0%,
+          rgba($primary-color, 0) 80%
+        ),
+        url("../../../public/assets/home/desktop/bg-pattern-hero-home.svg");
+      background-size: 292px 292px;
+      background-position: right -125px;
+      width: 876px;
+      height: 584px;
+      z-index: -1;
+      @include respond-to-max(md) {
+        background-position: -145px -105px;
+        background-image: linear-gradient(
+            to left,
+            rgba($primary-color, 0.5) 10%,
+            rgba($primary-color, 0.7) 50%
+          ),
+          url("../../../public/assets/home/desktop/bg-pattern-hero-home.svg");
+      }
+      @include respond-to-max(sm) {
+        background-position: 0px -105px;
+        background-size: 302px 302px;
+
+        background-image: linear-gradient(
+            to left,
+            rgba($primary-color, 0.1) 10%,
+            rgba($primary-color, 1) 50%
+          ),
+          url("../../../public/assets/home/desktop/bg-pattern-hero-home.svg");
+      }
+    }
+  }
+  > div {
+    width: 77.15%;
+    margin-top: 80px;
+    @include respond-to-max(md) {
+      width: 90%;
+    }
+    .mid {
+      @include flex-row(space-between, center);
+      @include respond-to-max(sm) {
+        @include flex-column(center, center);
+        border: unset;
+        margin-top: $margin-top;
+      }
+      border-bottom: 0.25px solid rgba($secondary-color-light, 0.1);
+      padding-bottom: $size-2;
+      img {
+        width: 202px;
+        height: 27px;
+        @include respond-to-max(sm) {
+          margin-bottom: $size-2;
+        }
+      }
+      ul {
+        @include flex-row;
+        color: $primary-color-light;
+        @include respond-to-max(sm) {
+          @include flex-column(center, center);
+          border-top: 0.25px solid rgba($secondary-color-light, 0.1);
+          padding-top: $size-1;
+          width: 327px;
+        }
+        li {
+          font-size: $size-14;
+          line-height: $size-14;
+          letter-spacing: $spacing-sm;
+          opacity: 0.9;
+          font-weight: 300;
+          text-transform: uppercase;
+          &:not(:first-child) {
+            margin-left: $size-2;
+          }
+          @include respond-to-max(md) {
+            &:not(:first-child) {
+              margin-left: $size-1h;
+            }
+            font-size: $size-12;
+          }
+          @include respond-to-max(sm) {
+            padding-top: $size-1;
+            text-align: center;
+            margin-bottom: $size-14;
+            font-size: $size-14;
+
+            &:not(:first-child) {
+              margin-left: 0;
+            }
+            width: 327px;
+          }
+        }
+      }
+    }
+
+    .bot {
+      color: $primary-color-light;
+      @include flex-row(space-between, center);
+      overflow: hidden;
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: 0;
+      @include respond-to-max(sm) {
+        @include flex-column(center, center);
+      }
+
+      .address {
+        @include flex-row(space-between, center);
+        @include respond-to-max(sm) {
+          @include flex-column(center, center);
+        }
+        p {
+          margin-top: $size-2;
+          opacity: 0.5;
+          font-weight: 450;
+          &:first-child {
+            margin-right: 4rem;
+          }
+          span {
+            display: block;
+            font-weight: 300;
+          }
+          @include respond-to-max(md) {
+            font-size: $size-13;
+            opacity: 0.6;
+          }
+          &:first-child {
+            margin-right: 2rem;
+          }
+          @include respond-to-max(sm) {
+            font-size: $font-size-body;
+            text-align: center;
+            opacity: 0.5;
+
+            span {
+              opacity: 0.8;
+            }
+            &:first-child {
+              margin-right: 0rem;
+            }
+          }
+        }
+      }
+      .icons {
+        @include flex-center(right, center);
+        width: 24px !important;
+        @include respond-to-max(md) {
+          align-self: flex-end;
+        }
+        @include respond-to-max(sm) {
+          justify-content: center;
+          align-self: unset;
+          margin-top: $size-2;
+        }
+        img {
+          width: 24px !important;
+
+          &:not(:last-child) {
+            margin-right: $size-1;
+          }
+          &:hover {
+            cursor: $cursor;
+            filter: brightness(1.3) contrast(0.9) saturate(1.5);
+            transition: filter 0.3s ease;
+          }
+          @include respond-to-max(md) {
+            align-self: flex-end;
+          }
+          @include respond-to-max(sm) {
+            align-self: center;
+            &:not(:last-child) {
+              margin-right: 0;
+            }
+            &:not(:first-child) {
+              margin-left: $size-1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

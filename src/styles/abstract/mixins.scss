@@ -1,0 +1,326 @@
+@import "./variables.scss";
+
+@mixin flex-layout {
+  display: flex;
+}
+@mixin flex-center($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-space-between($justify: space-between, $align: center) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-row($justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-column($justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin two-item-design {
+  margin-top: $margin-top;
+  @include flex-row(space-between, center);
+  div {
+    color: $primary-color-light;
+    width: 541px;
+    height: 308px;
+  }
+}
+@mixin grid-design($image, $top, $left) {
+  margin-top: $margin-top;
+
+  position: $position-rel;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  gap: 20px;
+  @include respond-to-max(sm) {
+    gap: 40px;
+  }
+  @include before-background-pattern($image, $top, $left);
+  .item {
+    background-color: #fdf3f0;
+    text-align: center;
+    @include border-radius($size-15);
+    @include flex-column(center, center);
+    margin-bottom: $size-15;
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+      background-color 0.3s ease;
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      cursor: $cursor;
+      color: $primary-color-light;
+      background-color: $primary-color;
+    }
+    > div {
+      @include flex-column(center, center);
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 20px;
+      border-radius: $size-15 $size-15 0 0px;
+    }
+    h3,
+    p {
+      transform: translateY(10px);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    &:hover h3,
+    &:hover p {
+      transform: translateY(0);
+      color: $primary-color-light;
+    }
+    h3 {
+      margin: $size-10 0;
+      font-size: $font-size-h3;
+      color: $primary-color;
+      letter-spacing: $spacing-m;
+      line-height: $line-height-md;
+      font-weight: $font-weight-medium;
+    }
+
+    p {
+      font-size: $font-size-body;
+      line-height: $line-height-md;
+      color: $secondary-color-dark;
+      width: 73%;
+      align-self: center;
+      margin-bottom: 3rem;
+    }
+  }
+}
+@mixin top-page-background($repeat: no-repeat, $position: right) {
+  margin-top: $margin-top;
+  background-color: $primary-color;
+  background-repeat: $repeat;
+  @include border-radius($size-15);
+  min-height: 252px;
+  background-position: $position;
+  @include respond-to-max(lg) {
+    margin-top: 3rem;
+  }
+  @include respond-to-max(sm) {
+    margin-top: 0;
+  }
+  @include flex-column(center, center);
+  h1,
+  p {
+    color: $primary-color-light;
+    text-align: center;
+  }
+  h1 {
+    font-size: $font-size-h1;
+    font-weight: 450;
+    line-height: $font-size-h1;
+    margin-bottom: $size-15;
+  }
+  p {
+    margin-top: $size-10;
+    font-size: $font-size-body;
+    line-height: $line-height-md;
+    font-weight: $font-weight-normal;
+    width: 400px;
+  }
+}
+@mixin background(
+  $linear-gradiant,
+  $image,
+  $repeat: no-repeat,
+  $size: cover,
+  $position: center
+) {
+  background-image: $linear-gradiant, $image;
+  background-repeat: $repeat;
+  background-size: $size;
+  background-position: $position;
+}
+@mixin box-sizing($type: border-box) {
+  box-sizing: $type;
+}
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin before-background-pattern(
+  $image: url("../../../../public/assets/shared/desktop/bg-pattern-leaf.svg"),
+  $top,
+  $left,
+  $height: 594px,
+  $width: 100%,
+  $z-index: -1,
+  $transform: none
+) {
+  &::before {
+    content: "";
+    width: $width;
+    height: $height;
+    background: $image;
+    position: $position-absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: $top;
+    left: $left;
+    z-index: $z-index;
+    transform: $transform;
+  }
+}
+@mixin design-block(
+  $bg-color: rgba(231, 129, 107, 0.6),
+  $h2-font-size: $font-size-h2,
+  $h2-letter-spacing: $spacing-sm,
+  $h2-line-height: $line-height-lg,
+  $h2-font-weight: $font-weight-normal,
+  $h2-margin-bottom: $size-2,
+  $h2-responsive-font-size: 24px,
+  $h2-responsive-line-height: 32px,
+  $p-font-size: $size-15,
+  $p-letter-spacing: $spacing-m,
+  $p-cursor: $cursor,
+  $p-responsive-font-size: 14px,
+  $primary-color: $primary-color-light
+) {
+  @include flex-column(center, center);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  opacity: 20;
+  position: $position-rel;
+  cursor: $cursor;
+
+  &::before {
+    content: "";
+    position: $position-absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient($bg-color, $bg-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    @include border-radius($size-14);
+    z-index: -1;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  h2 {
+    font-size: $h2-font-size;
+    letter-spacing: $h2-letter-spacing;
+    line-height: $h2-line-height;
+    font-weight: $h2-font-weight;
+    margin-bottom: $h2-margin-bottom;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: $p-font-size;
+    letter-spacing: $p-letter-spacing;
+    cursor: $p-cursor;
+    color: $primary-color;
+  }
+}
+
+@mixin responsive-font(
+  $min-size,
+  $max-size,
+  $min-width: 320px,
+  $max-width: 1200px
+) {
+  font-size: $min-size;
+  @media screen and (min-width: $min-width) {
+    font-size: calc(
+      #{$min-size} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}) /
+            (#{$max-width} - #{$min-width}))
+    );
+  }
+  @media screen and (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+@mixin box-shadow(
+  $x: 0,
+  $y: 0,
+  $blur: 10px,
+  $spread: 0,
+  $color: rgba(0, 0, 0, 0.15)
+) {
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  -moz-box-shadow: $x $y $blur $spread $color;
+  box-shadow: $x $y $blur $spread $color;
+}
+@mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out) {
+  -webkit-transition: $property $duration $timing;
+  -moz-transition: $property $duration $timing;
+  -o-transition: $property $duration $timing;
+  transition: $property $duration $timing;
+}
+@mixin reset-margins-padding {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@mixin input-style(
+  $border-color: $color-gray-dark,
+  $background-color: $color-white
+) {
+  border: 1px solid $border-color;
+  background-color: $background-color;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-sm;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $color-gray-dark;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: $color-secondary;
+    box-shadow: 0 0 0 3px rgba($color-secondary, 0.2);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: lighten($color-gray-dark, 20%);
+  }
+}
+@mixin respond-to-max($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: #{$breakpoint-sm}) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: #{$breakpoint-md}) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: #{$breakpoint-lg}) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: #{$breakpoint-xl}) {
+      @content;
+    }
+  }
+}

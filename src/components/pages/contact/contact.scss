@@ -1,0 +1,166 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.contactContainer {
+  @include flex-column(center, center);
+  overflow: hidden;
+
+  main {
+    margin-top: $margin-top;
+    width: 77.15%;
+    @include respond-to-max(xl) {
+      width: 90%;
+    }
+    @include respond-to-max(sm) {
+      margin-top: 0;
+      width: 100%;
+    }
+    .formContainer {
+      @include flex-center(space-evenly, center);
+      background-color: $primary-color;
+      height: 480px;
+      padding: 0 6rem;
+      @include border-radius($size-14);
+      background-image: url("../../../../public/assets/contact/desktop/bg-pattern-hero-desktop.svg");
+      background-repeat: no-repeat;
+      background-position: left bottom;
+
+      > div {
+        @include flex-column(center, left);
+        width: 540px;
+        h1,
+        p {
+          color: $primary-color-light;
+        }
+        h1 {
+          font-size: $font-size-h1;
+          font-weight: 450;
+          line-height: $font-size-h1;
+          margin-bottom: $size-2;
+          @include respond-to-max(sm) {
+            font-size: 32px;
+            text-align: center;
+          }
+        }
+        p {
+          font-size: $font-size-body;
+          line-height: $line-height-md;
+          font-weight: $font-weight-normal;
+          max-width: 445px;
+          @include respond-to-max(sm) {
+            font-size: $size-15;
+            text-align: center;
+          }
+        }
+        @include respond-to-max(md) {
+          width: 95%;
+          p,
+          h1 {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+        @include respond-to-max(sm) {
+          width: 100%;
+        }
+      }
+      form {
+        @include flex-column(center, left);
+        width: 380px;
+        button {
+          align-self: flex-end;
+        }
+        .error-message {
+          position: absolute;
+          right: 0px;
+          top: 10%;
+          transform: translateY(-0%);
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          color: $primary-color-light;
+          font-style: italic;
+          font-size: $size-12;
+          .error-icon {
+            margin-left: $size-10;
+          }
+        }
+        .input-container {
+          position: $position-rel;
+        }
+        input,
+        textarea {
+          background-color: inherit;
+          color: $secondary-color-light;
+          padding-left: $size-1;
+          padding-bottom: $size-14;
+          outline: unset;
+          border: unset;
+          border-bottom: 1px solid $primary-color-light;
+          height: 40px;
+          line-height: $line-height-md;
+          width: 380px;
+          font-weight: $font-weight-medium;
+          font-size: $size-15;
+          margin-bottom: $size-1h;
+          &::placeholder {
+            color: $secondary-color-light;
+            opacity: 50%;
+          }
+          &:hover {
+            cursor: $cursor;
+          }
+          &:focus {
+            border-bottom: 3px solid $primary-color-light;
+          }
+        }
+        textarea {
+          height: 102px;
+        }
+        @include respond-to-max(md) {
+          width: 90%;
+          input,
+          textarea {
+            width: 100%;
+          }
+        }
+        @include respond-to-max(sm) {
+          @include respond-to-max(md) {
+            width: 100%;
+          }
+        }
+      }
+      @include respond-to-max(xl) {
+        padding: 0 $size-1h;
+      }
+      @include respond-to-max(md) {
+        padding: 0 $size-1h;
+        flex-direction: column;
+        min-height: 711px;
+        background-position: -100px -70px;
+      }
+      @include respond-to-max(sm) {
+        @include border-radius(0);
+      }
+    }
+    .cities {
+      @include respond-to-max(md) {
+        margin-top: 5rem;
+      }
+      @media (min-width: 769px) {
+        @include before-background-pattern(
+          url("../../../../public/assets/shared/desktop/bg-pattern-leaf.svg"),
+          $top: 80px,
+          $left: 295px
+        );
+      }
+    }
+  }
+  footer {
+    .top {
+      display: none;
+    }
+    @include respond-to-max(md) {
+      margin-top: 0;
+    }
+  }
+}

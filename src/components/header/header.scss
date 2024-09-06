@@ -1,0 +1,37 @@
+@import "../../styles/abstract/mixins.scss";
+@import "../../styles/abstract/variables.scss";
+header {
+  @include flex-space-between;
+  margin-top: 64px;
+  width: 77.15%;
+  @include respond-to-max(xl) {
+    width: 90%;
+  }
+  @include respond-to-max(sm) {
+    margin-top: 0;
+    height: 96px;
+  }
+  img {
+    width: 196px;
+    height: 24px;
+    cursor: $cursor;
+  }
+  ul {
+    @include flex-row;
+    li {
+      cursor: $cursor;
+      text-transform: $transform;
+      font-size: $size-14;
+      color: $secondary-color-dark;
+      font-weight: $font-weight-normal;
+      line-height: $size-14;
+      letter-spacing: 2px;
+      @include respond-to-max(xl) {
+        font-size: $size-12;
+      }
+      &:not(:first-child) {
+        margin-left: $size-2;
+      }
+    }
+  }
+}

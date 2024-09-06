@@ -1,0 +1,201 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+.companyContainer {
+  position: $position-rel;
+  @include flex-column(center, center);
+  overflow: hidden;
+  main {
+    width: 77.15%;
+    @include respond-to-max(xl) {
+      width: 90%;
+    }
+    @include respond-to-max(md) {
+      width: 90%;
+    }
+    @include respond-to-max(sm) {
+      width: 100%;
+    }
+
+    .companyIntro,
+    .talent,
+    .realDeal {
+      margin-top: $margin-top;
+      @include border-radius($size-14);
+      @include flex-center(flex-end, center);
+      background-color: $primary-color;
+      color: $primary-color-light;
+      background-position: 0 -150px;
+      background-image: url("../../../../public/assets/about/desktop/bg-pattern-hero-about-desktop.svg");
+      background-repeat: no-repeat;
+      @include respond-to-max(md) {
+        @include flex-column(center, center);
+        flex-direction: column-reverse;
+      }
+      @include respond-to-max(sm) {
+        margin-top: 0;
+        border-radius: 0;
+      }
+      > div {
+        min-height: 480px;
+        @include flex-column(center, center);
+        @include respond-to-max(md) {
+          min-height: 330px;
+          height: 410px;
+        }
+        @include respond-to-max(sm) {
+          min-height: 730px;
+        }
+        h1 {
+          width: 70%;
+          font-size: $font-size-h1;
+          line-height: $font-size-h1;
+          font-weight: 450;
+          margin-bottom: $size-2;
+          @include respond-to-max(sm) {
+            font-size: 32px;
+          }
+        }
+        p {
+          width: 70%;
+          font-size: $font-size-body;
+          line-height: $line-height-md;
+          font-weight: $font-weight-normal;
+          @include respond-to-max(sm) {
+            font-size: $size-15;
+          }
+        }
+        h1,
+        p {
+          @include respond-to-max(xl) {
+            width: 80%;
+          }
+          @include respond-to-max(md) {
+            width: 82%;
+            text-align: center !important;
+          }
+        }
+      }
+      img {
+        border-radius: 0px 14px 14px 0;
+        @include respond-to-max(xl) {
+          width: 50%;
+          min-height: 100vh;
+        }
+        @include respond-to-max(md) {
+          width: 100%;
+          border-radius: $size-14 $size-14 0 0;
+          height: auto;
+          min-height: auto;
+        }
+        @include respond-to-max(sm) {
+          border-radius: 0;
+        }
+      }
+    }
+    .companyIntro {
+      > div {
+        @include respond-to-max(sm) {
+          min-height: 100%;
+        }
+      }
+    }
+    .realDeal,
+    .talent {
+      background: linear-gradient(
+          rgba(253, 243, 240, 0.9),
+          rgba(253, 243, 240, 0.9)
+        ),
+        url("../../../../public/assets/about/desktop/bg-pattern-hero-about-desktop.svg");
+      background-repeat: repeat;
+      background-color: #fdf3f0;
+      background-size: 29%;
+      @include respond-to-max(sm) {
+        font-size: $size-15 !important;
+        background: linear-gradient(
+            rgba(253, 243, 240, 0.8),
+            rgba(253, 243, 240, 0.8)
+          ),
+          url("../../../../public/assets/about/desktop/bg-pattern-hero-about-desktop.svg");
+        background-size: 70%;
+        background-position: bottom left;
+      }
+      h2 {
+        color: $primary-color;
+        margin-bottom: $size-2;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-medium;
+        line-height: $font-size-h1;
+        margin-right: $size-1;
+      }
+      p {
+        color: $secondary-color-dark;
+        font-size: $font-size-body !important;
+        line-height: $line-height-md;
+        font-weight: 450 !important;
+        &:nth-child(2) {
+          margin-bottom: $size-2;
+        }
+        @include respond-to-max(sm) {
+          font-size: $size-15 !important;
+        }
+      }
+      h2,
+      p {
+        width: 70%;
+        @include respond-to-max(md) {
+          text-align: center !important;
+        }
+        @include respond-to-max(sm) {
+          width: 90% !important;
+        }
+      }
+    }
+    .talent {
+      position: $position-rel;
+      @include flex-center(flex-start, center);
+      margin: 9.5rem 0;
+      position: $position-rel;
+      @include respond-to-max(md) {
+        flex-direction: column;
+      }
+      @include respond-to-max(sm) {
+        margin: 0;
+      }
+      > div {
+        @include flex-column(center, center);
+        width: 100%;
+      }
+      img {
+        border-radius: 14px 0px 0px 14px;
+        @include respond-to-max(md) {
+          border-radius: 14px 14px 0 0;
+        }
+        @include respond-to-max(sm) {
+          margin-top: 0;
+          border-radius: 0;
+        }
+      }
+      @media (min-width: 769px) {
+        @include before-background-pattern(
+          url("../../../../public/assets/shared/desktop/bg-pattern-leaf.svg"),
+          $top: -245px,
+          $left: -200px
+        );
+      }
+    }
+
+    .realDeal {
+      margin: 9.5rem 0;
+      > div {
+        width: 100%;
+        @include flex-center(center, center);
+      }
+      @include respond-to-max(xl) {
+        p,
+        h2 {
+          width: 80%;
+        }
+      }
+    }
+  }
+}

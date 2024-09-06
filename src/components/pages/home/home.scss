@@ -1,0 +1,279 @@
+@import "../../../styles/abstract/mixins.scss";
+@import "../../../styles/abstract/variables.scss";
+
+.homeContainer {
+  position: $position-rel;
+  @include flex-column(center, center);
+  overflow: hidden;
+
+  .sectionOne,
+  .sectionThree,
+  .sectionTwo {
+    width: 77.15%;
+    @include respond-to-max(xl) {
+      width: 95%;
+    }
+    @include respond-to-max(md) {
+      width: 90%;
+    }
+    @include respond-to-max(sm) {
+      width: 100%;
+    }
+  }
+  .sectionOne {
+    margin-top: $margin-top;
+    background-color: $primary-color;
+    height: 640px;
+    @include border-radius($size-15);
+    padding: $size-14;
+    color: $primary-color-light;
+    position: $position-rel;
+    overflow: hidden;
+    @include flex-center(left, center);
+    @include respond-to-max(md) {
+      @include flex-column(center, center);
+      height: 843px;
+      text-align: center;
+    }
+    @include respond-to-max(sm) {
+      margin-top: 0;
+      border-radius: unset;
+      padding: 0;
+    }
+    .pattern {
+      position: $position-absolute;
+      top: 11%;
+      right: -12%;
+      z-index: 1;
+      @include respond-to-max(sm) {
+        right: -70%;
+        top: 15%;
+      }
+    }
+    .phonePic {
+      position: $position-absolute;
+      top: -35px;
+      right: -100px;
+      z-index: 2;
+      @include respond-to-max(xl) {
+        right: -140px;
+      }
+      @include respond-to-max(md) {
+        position: $position-rel;
+        margin-bottom: -13.5rem;
+        height: 660px;
+        width: 500px;
+        top: 0;
+        right: 0;
+      }
+      @include respond-to-max(sm) {
+        min-width: 283px;
+        min-height: 573px;
+        margin-bottom: -16rem;
+      }
+    }
+    .content {
+      max-width: 540px;
+      margin-left: 5rem;
+      @include respond-to-max(xl) {
+        margin-left: $size-1;
+        max-width: 400px;
+      }
+      @include respond-to-max(md) {
+        margin-left: 0;
+        max-width: 513px;
+      }
+      @include respond-to-max(sm) {
+        width: 100%;
+        @include flex-column(center, center);
+        margin-left: 0 !important;
+      }
+      position: $position-rel;
+      z-index: 3;
+
+      h1 {
+        font-size: $font-size-h1;
+        line-height: $font-size-h1;
+        font-weight: 500;
+        margin-bottom: $size-2;
+        @include respond-to-max(md) {
+          margin-top: 5rem;
+          margin-bottom: $size-1h;
+          font-weight: 450;
+        }
+        @include respond-to-max(sm) {
+          width: 90%;
+          margin-top: 3rem;
+
+          font-size: $font-size-h1-mobile;
+        }
+      }
+      p {
+        font-size: $font-size-body;
+        width: 445px;
+        line-height: $line-height-md;
+        font-weight: $font-weight-normal;
+        margin-bottom: $size-2;
+        @include respond-to-max(xl) {
+          width: 400px;
+        }
+        @include respond-to-max(md) {
+          width: 513px;
+          margin-bottom: $size-1h;
+        }
+        @include respond-to-max(sm) {
+          width: 85%;
+          font-size: $size-15;
+        }
+      }
+    }
+  }
+  .sectionTwo {
+    @include flex-center(space-between, center);
+    margin-top: $margin-top;
+    position: $position-rel;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 49%));
+    display: grid;
+    @include respond-to-max(md) {
+      @include flex-column;
+    }
+    @include respond-to-max(sm) {
+      width: 90%;
+    }
+    > div:nth-child(2) {
+      @include flex-column(space-between, center);
+      height: 640px;
+      @include respond-to-max(sm) {
+        height: auto;
+      }
+    }
+    @include before-background-pattern(
+      url("../../../../public/assets/shared/desktop/bg-pattern-leaf.svg"),
+      -450px,
+      -175px
+    );
+  }
+  .sectionThree {
+    margin-bottom: 10rem;
+    margin-top: 8rem;
+    position: $position-rel;
+    @include flex-row(space-between, center);
+    @include respond-to-max(md) {
+      @include flex-column(space-between, center);
+
+      margin-bottom: 5rem;
+      margin-top: 8rem;
+    }
+    > div {
+      @include flex-column(center, center);
+      width: 350px;
+      height: 412px;
+      @include respond-to-max(md) {
+        width: 100%;
+        height: auto;
+
+        margin-bottom: $size-2;
+        @include flex-row(flex-start, center);
+        > div {
+          @include flex-column(center, flex-start);
+          margin-top: $size-1;
+          margin-left: $size-2;
+
+          width: 439px;
+          height: 120px;
+        }
+      }
+      @include respond-to-max(sm) {
+        width: 90%;
+        &:not(:first-child) {
+          margin-top: 2rem;
+        }
+        @include flex-column(center, center);
+        > div {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .passionate {
+        background-image: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.849)
+          ),
+          url("../../../../public/assets/shared/desktop/bg-pattern-small-circle.svg");
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        overflow: visible;
+      }
+      .resourceful {
+        background-image: linear-gradient(
+            to bottom,
+            rgb(255, 255, 255),
+            rgba(93, 2, 2, 0.062)
+          ),
+          url("../../../../public/assets/shared/desktop/bg-pattern-small-circle.svg");
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        overflow: visible;
+      }
+      .friendly {
+        background-image: linear-gradient(
+            to top,
+            rgb(255, 255, 255),
+            rgba(93, 2, 2, 0.062)
+          ),
+          url("../../../../public/assets/shared/desktop/bg-pattern-small-circle.svg");
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        overflow: visible;
+      }
+
+      p {
+        text-align: center;
+        line-height: $line-height-md;
+        font-weight: $font-weight-normal;
+        font-size: $size-15;
+        color: $secondary-color-dark;
+        @include respond-to-max(xl) {
+          max-width: 250px;
+        }
+        @include respond-to-max(md) {
+          max-width: 100%;
+          text-align: left;
+          font-size: 16px;
+        }
+        @include respond-to-max(sm) {
+          text-align: center;
+          width: 90%;
+          font-size: 16px;
+          margin-top: $size-1;
+        }
+      }
+      h3 {
+        text-align: center;
+        color: $secondary-color-dark;
+        font-size: $font-size-h3;
+        line-height: $line-height-md;
+        letter-spacing: $spacing-m;
+        margin-bottom: $size-2;
+        font-weight: $font-weight-medium;
+        @include respond-to-max(md) {
+          margin-bottom: $size-1;
+        }
+        @include respond-to-max(sm) {
+          text-align: center;
+          width: 90%;
+          margin-top: $size-1h;
+        }
+      }
+    }
+    @media (min-width: #{$breakpoint-md + 1}) {
+      @include before-background-pattern(
+        url("../../../../public/assets/shared/desktop/bg-pattern-leaf.svg"),
+        130px,
+        165px,
+        $transform: rotate(180deg)
+      );
+    }
+  }
+}

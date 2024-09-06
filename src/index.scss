@@ -1,0 +1,12 @@
+@import "./styles/abstract/variables.scss";
+@import "styles/abstract/mixins.scss";
+@import "./styles/base/fonts.scss";
+@import "./components/reusable/button/buttons.scss";
+@import "styles/base/reset.scss";
+@import "./components/pages/home/home.scss";
+body {
+  font-family: "Jost", sans-serif;
+
+  #root {
+  }
+}
